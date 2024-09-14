@@ -1,10 +1,10 @@
 {
-  "name": "react-ts-vite-eslint-prettier-tailwind",
-  "private": true,
+  "name": "frontend",
   "version": "0.1.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
+    "check-types": "tsc --noEmit",
     "preview": "vite preview",
     "lint": "eslint src --max-warnings=0",
     "types": "tsc --project tsconfig.json --noEmit"

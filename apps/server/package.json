@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "server",
   "version": "1.0.0",
@@ -23,3 +24,30 @@
     "tsx": "^4.19.1"
   }
 }
+=======
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node build/index.js",
+    "dev": "yarn nodemon --watch \"./src/**/*.ts\" --exec \"tsx\" ./src/server.ts",
+    "build": "tsc -p ."
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "socket.io": "^4.7.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.5",
+    "nodemon": "^3.1.4",
+    "tsx": "^4.19.1"
+  }
+}
+>>>>>>> 4db8f8a0d138790a2c42c88d8e16d16f24e46b17

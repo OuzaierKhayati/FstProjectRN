@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
@@ -13,3 +14,20 @@
     }
   }
 }
+=======
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false
+    }
+  }
+}
+>>>>>>> 4db8f8a0d138790a2c42c88d8e16d16f24e46b17

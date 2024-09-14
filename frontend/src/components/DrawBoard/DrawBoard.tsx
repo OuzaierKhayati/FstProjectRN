@@ -56,7 +56,7 @@ const DrawBoard: React.FC = () => {
         }
       });
     }
-  }, [ctx, drawings]);
+  }, [ctx, drawings, strokeColor]);
 
   const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
     setIsDrawing(true);
@@ -105,7 +105,7 @@ const DrawBoard: React.FC = () => {
     >
       <canvas
         ref={canvasRef}
-        className="border-2 border-gray-400 bg-white rounded-md"
+        className="rounded-md border-2 border-gray-400 bg-white"
         onMouseDown={startDrawing}
         onMouseMove={draw}
         onMouseUp={stopDrawing}

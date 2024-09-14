@@ -1,8 +1,13 @@
 import bodyParser from "body-parser";
 import express from "express";
 import DemoController from "./controllers/demo.controller";
+import http from "http";
+import { Server } from "socket.io";
+import { demoHandler } from "./handlers/demo.handler";
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,8 +26,14 @@ app.use("/api", restApi);
 
 restApi.use("/demo", DemoController);
 
+/************Socket.io*************/
+io.on("connection", (socket) => {
+  console.log("a user connected");
+  demoHandler(io, socket);
+});
+
 /************Start Server*************/
 const PORT: string | number = process.env.PORT || 5000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);
 });

@@ -4,6 +4,7 @@ import DemoController from "./controllers/demo.controller";
 import http from "http";
 import { Server } from "socket.io";
 import { demoHandler } from "./handlers/demo.handler";
+import { snakeHandler } from "./handlers/snake.handler";
 
 const app = express();
 const server = http.createServer(app);
@@ -35,6 +36,7 @@ io.on("connection", (socket) => {
   console.log("a user connected");
 
   demoHandler(io, socket);
+  snakeHandler(io, socket);
 
   socket.on("disconnect", () => {
     console.log("user disconnected");

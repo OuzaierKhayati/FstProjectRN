@@ -1,5 +1,4 @@
 import Loader from '@/components/common/Loader';
-import DrawBoard from '@/components/DrawBoard/DrawBoard';
 import { getDemo } from '@/services/demo.service';
 import { socket } from '@/services/socket.service';
 import { useQuery } from '@tanstack/react-query';
@@ -125,9 +124,6 @@ export default function DemoPage() {
           <Snake key={snake.id} {...snake} />
         ))}
       </div>
-
-      {/* Draw Board */}
-      <DrawBoard />
     </div>
   );
 }

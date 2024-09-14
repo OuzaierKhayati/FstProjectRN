@@ -8,6 +8,7 @@ import 'index.css';
 import DemoPage from './pages/demo';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from './services/api.service';
+import DrawPage from './pages/draw';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: '/demo',
     element: <DemoPage />,
+  },
+  {
+    path: '/draw',
+    element: <DrawPage />,
   },
 ]);
 

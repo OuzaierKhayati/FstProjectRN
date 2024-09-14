@@ -7,7 +7,6 @@ const randomInteger = (min: number, max: number) =>
 export const snakeHandler = async (io: Server) => {
   while (true) {
     await sleep(Math.random() * 1000);
-    const sockets = io.sockets.sockets;
     io.emit("snake", {
       x: randomInteger(0, 500),
       y: randomInteger(0, 500),

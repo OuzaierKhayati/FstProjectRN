@@ -5,6 +5,7 @@ import http from "http";
 import { Server } from "socket.io";
 import { demoHandler } from "./handlers/demo.handler";
 import { snakeHandler } from "./handlers/snake.handler";
+import { drawHandler } from "./handlers/draw.handler";
 
 const app = express();
 const server = http.createServer(app);
@@ -32,11 +33,13 @@ app.use("/api", restApi);
 restApi.use("/demo", DemoController);
 
 /************Socket.io*************/
+snakeHandler(io);
+
 io.on("connection", (socket) => {
   console.log("a user connected");
 
   demoHandler(io, socket);
-  snakeHandler(io, socket);
+  drawHandler(io, socket);
 
   socket.on("disconnect", () => {
     console.log("user disconnected");

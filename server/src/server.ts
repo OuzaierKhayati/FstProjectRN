@@ -7,7 +7,11 @@ import { demoHandler } from "./handlers/demo.handler";
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+  },
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,7 +33,12 @@ restApi.use("/demo", DemoController);
 /************Socket.io*************/
 io.on("connection", (socket) => {
   console.log("a user connected");
+
   demoHandler(io, socket);
+
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
 });
 
 /************Start Server*************/
